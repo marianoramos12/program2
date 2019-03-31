@@ -27,7 +27,149 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menuMant = new javax.swing.JMenu();
+        menuMantUsuarios = new javax.swing.JMenuItem();
+        menuMantEntrenador = new javax.swing.JMenuItem();
+        menuMantLocalizacion = new javax.swing.JMenuItem();
+        menuMantSalas = new javax.swing.JMenuItem();
+        menuMantActividades = new javax.swing.JMenuItem();
+        menuMantHorarioActividades = new javax.swing.JMenuItem();
+        menuMantClientes = new javax.swing.JMenuItem();
+        menuMantEstadoReservas = new javax.swing.JMenuItem();
+        menuMantReservas = new javax.swing.JMenuItem();
+        menuMantReservaActividades = new javax.swing.JMenuItem();
+        menuMov = new javax.swing.JMenu();
+        menuMovCuotas = new javax.swing.JMenuItem();
+        menuProc = new javax.swing.JMenu();
+        menuProcGenerarCobro = new javax.swing.JMenuItem();
+        menuProcReversarCobro = new javax.swing.JMenuItem();
+        menuCons = new javax.swing.JMenu();
+        menuConsUsuarios = new javax.swing.JMenuItem();
+        menuConsEntrenador = new javax.swing.JMenuItem();
+        menuConsLocalizacion = new javax.swing.JMenuItem();
+        menuConsSalas = new javax.swing.JMenuItem();
+        menuConsActividades = new javax.swing.JMenuItem();
+        menuConsHorarioActividades = new javax.swing.JMenuItem();
+        menuConsCobroRangoFecha = new javax.swing.JMenuItem();
+        menuConsCobroCliente = new javax.swing.JMenuItem();
+        menuConsCuotaFecha = new javax.swing.JMenuItem();
+        menuConsCuotaClientes = new javax.swing.JMenuItem();
+        menuConsClientes = new javax.swing.JMenuItem();
+        menuConsClientesBalancePendiente = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PROGRAMACION III - TAREA FINAL(SISTEMA DE GIMNASIO)");
+        setAlwaysOnTop(true);
+
+        menuMant.setText("Mantenimientos");
+        menuMant.setToolTipText("");
+
+        menuMantUsuarios.setText("Usuarios");
+        menuMant.add(menuMantUsuarios);
+
+        menuMantEntrenador.setText("Entrenador");
+        menuMant.add(menuMantEntrenador);
+
+        menuMantLocalizacion.setText("Localizacion");
+        menuMant.add(menuMantLocalizacion);
+
+        menuMantSalas.setText("Salas");
+        menuMantSalas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuMantSalasActionPerformed(evt);
+            }
+        });
+        menuMant.add(menuMantSalas);
+
+        menuMantActividades.setText("Actividades");
+        menuMant.add(menuMantActividades);
+
+        menuMantHorarioActividades.setText("Horario de Actividades");
+        menuMant.add(menuMantHorarioActividades);
+
+        menuMantClientes.setText("Clientes");
+        menuMant.add(menuMantClientes);
+
+        menuMantEstadoReservas.setText("Estado Reservas");
+        menuMant.add(menuMantEstadoReservas);
+
+        menuMantReservas.setText("Reservas");
+        menuMant.add(menuMantReservas);
+
+        menuMantReservaActividades.setText("Reserva Actividades");
+        menuMant.add(menuMantReservaActividades);
+
+        jMenuBar1.add(menuMant);
+
+        menuMov.setText("Movimientos");
+
+        menuMovCuotas.setText("Cuotas");
+        menuMov.add(menuMovCuotas);
+
+        jMenuBar1.add(menuMov);
+
+        menuProc.setText("Procesos");
+
+        menuProcGenerarCobro.setText("Generar Cobro");
+        menuProc.add(menuProcGenerarCobro);
+
+        menuProcReversarCobro.setText("Reversar Cobro");
+        menuProc.add(menuProcReversarCobro);
+
+        jMenuBar1.add(menuProc);
+
+        menuCons.setText("Consultas");
+
+        menuConsUsuarios.setText("Usuarios");
+        menuCons.add(menuConsUsuarios);
+
+        menuConsEntrenador.setText("Entrenador");
+        menuCons.add(menuConsEntrenador);
+
+        menuConsLocalizacion.setText("Localizacion");
+        menuCons.add(menuConsLocalizacion);
+
+        menuConsSalas.setText("Salas");
+        menuCons.add(menuConsSalas);
+
+        menuConsActividades.setText("Actividades");
+        menuCons.add(menuConsActividades);
+
+        menuConsHorarioActividades.setText("Horario de Actividades");
+        menuCons.add(menuConsHorarioActividades);
+
+        menuConsCobroRangoFecha.setText("Cobro por Rango de Fecha");
+        menuCons.add(menuConsCobroRangoFecha);
+
+        menuConsCobroCliente.setText("Cobro por Cliente");
+        menuConsCobroCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuConsCobroClienteActionPerformed(evt);
+            }
+        });
+        menuCons.add(menuConsCobroCliente);
+
+        menuConsCuotaFecha.setText("Cuota por Fecha");
+        menuCons.add(menuConsCuotaFecha);
+
+        menuConsCuotaClientes.setText("Cuota por Clientes");
+        menuCons.add(menuConsCuotaClientes);
+
+        menuConsClientes.setText("Clientes");
+        menuConsClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuConsClientesActionPerformed(evt);
+            }
+        });
+        menuCons.add(menuConsClientes);
+
+        menuConsClientesBalancePendiente.setText("Clientes con Balance Pendiente");
+        menuCons.add(menuConsClientesBalancePendiente);
+
+        jMenuBar1.add(menuCons);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -37,11 +179,23 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 279, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void menuMantSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantSalasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuMantSalasActionPerformed
+
+    private void menuConsClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsClientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuConsClientesActionPerformed
+
+    private void menuConsCobroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsCobroClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuConsCobroClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +233,35 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu menuCons;
+    private javax.swing.JMenuItem menuConsActividades;
+    private javax.swing.JMenuItem menuConsClientes;
+    private javax.swing.JMenuItem menuConsClientesBalancePendiente;
+    private javax.swing.JMenuItem menuConsCobroCliente;
+    private javax.swing.JMenuItem menuConsCobroRangoFecha;
+    private javax.swing.JMenuItem menuConsCuotaClientes;
+    private javax.swing.JMenuItem menuConsCuotaFecha;
+    private javax.swing.JMenuItem menuConsEntrenador;
+    private javax.swing.JMenuItem menuConsHorarioActividades;
+    private javax.swing.JMenuItem menuConsLocalizacion;
+    private javax.swing.JMenuItem menuConsSalas;
+    private javax.swing.JMenuItem menuConsUsuarios;
+    private javax.swing.JMenu menuMant;
+    private javax.swing.JMenuItem menuMantActividades;
+    private javax.swing.JMenuItem menuMantClientes;
+    private javax.swing.JMenuItem menuMantEntrenador;
+    private javax.swing.JMenuItem menuMantEstadoReservas;
+    private javax.swing.JMenuItem menuMantHorarioActividades;
+    private javax.swing.JMenuItem menuMantLocalizacion;
+    private javax.swing.JMenuItem menuMantReservaActividades;
+    private javax.swing.JMenuItem menuMantReservas;
+    private javax.swing.JMenuItem menuMantSalas;
+    private javax.swing.JMenuItem menuMantUsuarios;
+    private javax.swing.JMenu menuMov;
+    private javax.swing.JMenuItem menuMovCuotas;
+    private javax.swing.JMenu menuProc;
+    private javax.swing.JMenuItem menuProcGenerarCobro;
+    private javax.swing.JMenuItem menuProcReversarCobro;
     // End of variables declaration//GEN-END:variables
 }
