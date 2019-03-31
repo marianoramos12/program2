@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
+  <Properties>
+    <Property name="title" type="java.lang.String" value="RESERVA DE ACTIVIDADES "/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                      <Component id="buttoncancelar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="buttonGuardar" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="labelEstadoreserva" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelFechabaja" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
+                          <Component id="labelFechareserva" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelIDreserva" min="-2" pref="103" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="labelIDreservadehorarios" alignment="0" max="32767" attributes="0"/>
+                              <Component id="labelIDactividad" alignment="0" max="32767" attributes="0"/>
+                              <Component id="labelIDcliente" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="textIDdelcliente" min="-2" pref="197" max="-2" attributes="0"/>
+                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="textIDreserva" alignment="1" pref="197" max="32767" attributes="0"/>
+                              <Component id="textIDdeactividad" alignment="1" max="32767" attributes="0"/>
+                              <Component id="textIDdereserva" max="32767" attributes="0"/>
+                              <Component id="textFechabaja" max="32767" attributes="0"/>
+                              <Component id="textFechadereserva" max="32767" attributes="0"/>
+                              <Component id="textIDreservadehorarios" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="textIDreserva" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="labelIDreserva" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="textFechadereserva" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelFechareserva" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="textFechabaja" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelFechabaja" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="labelEstadoreserva" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                  <Component id="textIDdereserva" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="labelIDcliente" min="-2" pref="29" max="-2" attributes="0"/>
+                  <Component id="textIDdelcliente" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="labelIDactividad" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="textIDdeactividad" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="labelIDreservadehorarios" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                  <Component id="textIDreservadehorarios" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="42" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="buttoncancelar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="labelFechareserva">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fecha de reserva"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelEstadoreserva">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID estado de reserva "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelIDcliente">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID del cliente"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="textIDreserva">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textIDreservaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="textIDdeactividad">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textIDdeactividadActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="textIDdereserva">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textIDdereservaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="buttoncancelar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttoncancelarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="buttonGuardar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Guardar "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelIDreserva">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID Reserva"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="textFechadereserva">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFechadereservaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelFechabaja">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fecha Baja "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="textFechabaja">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFechabajaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelIDactividad">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID de actividad"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="textIDdelcliente">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textIDdelclienteActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelIDreservadehorarios">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID de reserva de horario  de actividades "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="textIDreservadehorarios">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textIDreservadehorariosActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>
