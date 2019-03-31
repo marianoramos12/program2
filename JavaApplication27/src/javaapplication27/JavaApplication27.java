@@ -1,5 +1,6 @@
 /*ing mariano ramos 
 proyecto GYM DE PROGRAMACION 2
+klk
 
  */
 package javaapplication27;
