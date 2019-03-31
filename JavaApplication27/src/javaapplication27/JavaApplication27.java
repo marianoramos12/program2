@@ -1,4 +1,5 @@
 /*ing mariano ramos 
+proyecto GYM DE PROGRAMACION 2
 
  */
 package javaapplication27;
