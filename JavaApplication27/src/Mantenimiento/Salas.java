@@ -27,20 +27,23 @@ public class Salas extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        textID = new javax.swing.JTextField();
+        textIDsala = new javax.swing.JTextField();
         buttoncancelar = new javax.swing.JButton();
         buttonGuardar = new javax.swing.JButton();
-        labelID = new javax.swing.JLabel();
-        labelTipo = new javax.swing.JLabel();
-        textTipo = new javax.swing.JTextField();
-        labelTipo1 = new javax.swing.JLabel();
+        labelIDsala = new javax.swing.JLabel();
+        labelDescripciondesala = new javax.swing.JLabel();
+        textNombresala = new javax.swing.JTextField();
+        labelNombresala = new javax.swing.JLabel();
+        textIDlocalizacionsala = new javax.swing.JTextField();
+        labelIDlocalizacionsala = new javax.swing.JLabel();
+        textDescripcionsala = new javax.swing.JTextField();
 
         setTitle("LOCALIZACION ");
         setToolTipText("");
 
-        textID.addActionListener(new java.awt.event.ActionListener() {
+        textIDsala.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textIDActionPerformed(evt);
+                textIDsalaActionPerformed(evt);
             }
         });
 
@@ -53,17 +56,31 @@ public class Salas extends javax.swing.JInternalFrame {
 
         buttonGuardar.setText("Guardar ");
 
-        labelID.setText("ID de salas");
+        labelIDsala.setText("ID de sala");
 
-        labelTipo.setText("Nombre de sala");
+        labelDescripciondesala.setText("Descripcion de sala");
 
-        textTipo.addActionListener(new java.awt.event.ActionListener() {
+        textNombresala.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textTipoActionPerformed(evt);
+                textNombresalaActionPerformed(evt);
             }
         });
 
-        labelTipo1.setText("Nombre de sala");
+        labelNombresala.setText("Nombre de sala");
+
+        textIDlocalizacionsala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textIDlocalizacionsalaActionPerformed(evt);
+            }
+        });
+
+        labelIDlocalizacionsala.setText("ID de localización de sala");
+
+        textDescripcionsala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textDescripcionsalaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,31 +94,40 @@ public class Salas extends javax.swing.JInternalFrame {
                         .addGap(33, 33, 33)
                         .addComponent(buttonGuardar))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
+                        .addGap(44, 44, 44)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labelTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelID, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelTipo1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labelIDlocalizacionsala)
+                            .addComponent(labelDescripciondesala, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelNombresala, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelIDsala, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textID, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                            .addComponent(textTipo, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))))
+                            .addComponent(textIDsala, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                            .addComponent(textNombresala, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                            .addComponent(textIDlocalizacionsala, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                            .addComponent(textDescripcionsala, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))))
                 .addGap(86, 86, 86))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelID, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textIDsala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelIDsala, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelTipo1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addComponent(labelTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                    .addComponent(textNombresala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelNombresala, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelDescripciondesala, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textDescripcionsala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelIDlocalizacionsala, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textIDlocalizacionsala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttoncancelar)
                     .addComponent(buttonGuardar))
@@ -111,26 +137,37 @@ public class Salas extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIDActionPerformed
+    private void textIDsalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIDsalaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textIDActionPerformed
+    }//GEN-LAST:event_textIDsalaActionPerformed
 
     private void buttoncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttoncancelarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttoncancelarActionPerformed
 
-    private void textTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textTipoActionPerformed
+    private void textNombresalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNombresalaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textTipoActionPerformed
+    }//GEN-LAST:event_textNombresalaActionPerformed
+
+    private void textIDlocalizacionsalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIDlocalizacionsalaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textIDlocalizacionsalaActionPerformed
+
+    private void textDescripcionsalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textDescripcionsalaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textDescripcionsalaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonGuardar;
     private javax.swing.JButton buttoncancelar;
-    private javax.swing.JLabel labelID;
-    private javax.swing.JLabel labelTipo;
-    private javax.swing.JLabel labelTipo1;
-    private javax.swing.JTextField textID;
-    private javax.swing.JTextField textTipo;
+    private javax.swing.JLabel labelDescripciondesala;
+    private javax.swing.JLabel labelIDlocalizacionsala;
+    private javax.swing.JLabel labelIDsala;
+    private javax.swing.JLabel labelNombresala;
+    private javax.swing.JTextField textDescripcionsala;
+    private javax.swing.JTextField textIDlocalizacionsala;
+    private javax.swing.JTextField textIDsala;
+    private javax.swing.JTextField textNombresala;
     // End of variables declaration//GEN-END:variables
 }
