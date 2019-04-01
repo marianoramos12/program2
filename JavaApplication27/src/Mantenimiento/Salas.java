@@ -38,6 +38,7 @@ public class Salas extends javax.swing.JInternalFrame {
         labelIDlocalizacionsala = new javax.swing.JLabel();
         textDescripcionsala = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 153, 0));
         setTitle("LOCALIZACION ");
         setToolTipText("");
 

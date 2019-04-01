@@ -44,6 +44,11 @@ public class Reserva_Actividades extends javax.swing.JInternalFrame {
         labelIDreservadehorarios = new javax.swing.JLabel();
         textIDreservadehorarios = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(0, 255, 255));
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         setTitle("RESERVA DE ACTIVIDADES ");
 
         labelFechareserva.setText("Fecha de reserva");

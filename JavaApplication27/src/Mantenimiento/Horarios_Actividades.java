@@ -38,6 +38,13 @@ public class Horarios_Actividades extends javax.swing.JInternalFrame {
         labelIDactividad = new javax.swing.JLabel();
         textHoradeactividad = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(0, 204, 204));
+        setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        setClosable(true);
+        setForeground(java.awt.Color.white);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         setTitle("LOCALIZACION ");
         setToolTipText("");
 
@@ -96,10 +103,10 @@ public class Horarios_Actividades extends javax.swing.JInternalFrame {
                             .addComponent(labelIDactividad, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textIDhorariodeactividad, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                            .addComponent(textDiadeactividad, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                            .addComponent(textIDactividad, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                            .addComponent(textHoradeactividad, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)))
+                            .addComponent(textIDhorariodeactividad, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                            .addComponent(textDiadeactividad, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                            .addComponent(textIDactividad, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                            .addComponent(textHoradeactividad, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()

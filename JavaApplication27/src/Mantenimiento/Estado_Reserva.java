@@ -27,19 +27,20 @@ public class Estado_Reserva extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        textID = new javax.swing.JTextField();
+        textIDreserva = new javax.swing.JTextField();
         buttoncancelar = new javax.swing.JButton();
         buttonGuardar = new javax.swing.JButton();
         labelID = new javax.swing.JLabel();
         labelEstado = new javax.swing.JLabel();
         textEstado = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(0, 255, 255));
         setTitle("LOCALIZACION ");
         setToolTipText("");
 
-        textID.addActionListener(new java.awt.event.ActionListener() {
+        textIDreserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textIDActionPerformed(evt);
+                textIDreservaActionPerformed(evt);
             }
         });
 
@@ -80,7 +81,7 @@ public class Estado_Reserva extends javax.swing.JInternalFrame {
                             .addComponent(labelEstado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textID, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                            .addComponent(textIDreserva, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
                             .addComponent(textEstado, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))))
                 .addGap(86, 86, 86))
         );
@@ -90,7 +91,7 @@ public class Estado_Reserva extends javax.swing.JInternalFrame {
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelID, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textIDreserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -105,9 +106,9 @@ public class Estado_Reserva extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIDActionPerformed
+    private void textIDreservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIDreservaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textIDActionPerformed
+    }//GEN-LAST:event_textIDreservaActionPerformed
 
     private void buttoncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttoncancelarActionPerformed
         // TODO add your handling code here:
@@ -124,6 +125,6 @@ public class Estado_Reserva extends javax.swing.JInternalFrame {
     private javax.swing.JLabel labelEstado;
     private javax.swing.JLabel labelID;
     private javax.swing.JTextField textEstado;
-    private javax.swing.JTextField textID;
+    private javax.swing.JTextField textIDreserva;
     // End of variables declaration//GEN-END:variables
 }

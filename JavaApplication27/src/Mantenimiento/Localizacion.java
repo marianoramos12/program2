@@ -34,6 +34,7 @@ public class Localizacion extends javax.swing.JInternalFrame {
         labelTipo = new javax.swing.JLabel();
         textTipo = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(0, 255, 255));
         setTitle("LOCALIZACION ");
         setToolTipText("");
 

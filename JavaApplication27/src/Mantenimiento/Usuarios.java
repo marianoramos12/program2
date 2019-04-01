@@ -45,9 +45,12 @@ public class Usuarios extends javax.swing.JInternalFrame {
         buttoncancelar = new javax.swing.JButton();
         buttonGuardar = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 102, 0));
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         setTitle("MANTENIMIENTO DE USUARIOS");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {

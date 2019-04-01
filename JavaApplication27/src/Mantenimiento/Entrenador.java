@@ -40,6 +40,12 @@ public class Entrenador extends javax.swing.JInternalFrame {
         labelApellido = new javax.swing.JLabel();
         textApellido1 = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 153, 0));
+        setClosable(true);
+        setForeground(java.awt.Color.orange);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         setTitle("ENTRENADOR");
 
         labelNombre.setText("Nombre ");
