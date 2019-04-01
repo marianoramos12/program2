@@ -44,7 +44,11 @@ public class Cuotas extends javax.swing.JInternalFrame {
 
         jTextField3.setText("jTextField1");
 
-        setBackground(new java.awt.Color(0, 255, 255));
+        setBackground(new java.awt.Color(255, 204, 0));
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         setTitle("COBROS");
 
         LabelIDcuota.setText("ID de cuota");

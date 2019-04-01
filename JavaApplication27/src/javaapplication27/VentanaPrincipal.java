@@ -95,6 +95,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        panelBackGround.setBackground(new java.awt.Color(204, 204, 255));
+
         javax.swing.GroupLayout panelBackGroundLayout = new javax.swing.GroupLayout(panelBackGround);
         panelBackGround.setLayout(panelBackGroundLayout);
         panelBackGroundLayout.setHorizontalGroup(

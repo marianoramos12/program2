@@ -38,7 +38,7 @@ public class Horarios_Actividades extends javax.swing.JInternalFrame {
         labelIDactividad = new javax.swing.JLabel();
         textHoradeactividad = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(0, 204, 204));
+        setBackground(new java.awt.Color(153, 153, 153));
         setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         setClosable(true);
         setForeground(java.awt.Color.white);

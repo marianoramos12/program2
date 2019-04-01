@@ -34,7 +34,11 @@ public class Estado_Reserva extends javax.swing.JInternalFrame {
         labelEstado = new javax.swing.JLabel();
         textEstado = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(0, 255, 255));
+        setBackground(new java.awt.Color(153, 153, 153));
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         setTitle("LOCALIZACION ");
         setToolTipText("");
 

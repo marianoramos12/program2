@@ -42,7 +42,11 @@ public class Reserva extends javax.swing.JInternalFrame {
         labelIDestadodereserva = new javax.swing.JLabel();
         textIDhorariodereserva = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(51, 255, 255));
+        setBackground(new java.awt.Color(153, 153, 153));
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         setTitle("RESERVA ");
 
         labelIDsaladereserva.setText("ID sala de reserva");

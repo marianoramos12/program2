@@ -45,7 +45,7 @@ public class Usuarios extends javax.swing.JInternalFrame {
         buttoncancelar = new javax.swing.JButton();
         buttonGuardar = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 102, 0));
+        setBackground(new java.awt.Color(153, 153, 153));
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setIconifiable(true);

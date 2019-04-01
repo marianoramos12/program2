@@ -44,7 +44,7 @@ public class Reserva_Actividades extends javax.swing.JInternalFrame {
         labelIDreservadehorarios = new javax.swing.JLabel();
         textIDreservadehorarios = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(0, 255, 255));
+        setBackground(new java.awt.Color(153, 153, 153));
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);

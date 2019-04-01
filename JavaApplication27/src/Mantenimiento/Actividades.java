@@ -40,9 +40,13 @@ public class Actividades extends javax.swing.JInternalFrame {
         labelDescripcion = new javax.swing.JLabel();
         textIDdescripcion = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(0, 255, 255));
+        setBackground(new java.awt.Color(153, 153, 153));
         setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(204, 204, 0)));
+        setClosable(true);
         setForeground(java.awt.Color.white);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         setTitle("ENTRENADOR");
         setFrameIcon(null);
         setVisible(true);
