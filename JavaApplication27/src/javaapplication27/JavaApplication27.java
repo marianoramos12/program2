@@ -19,7 +19,7 @@ public class JavaApplication27 {
     public static void main(String[] args) {
         // TODO code application logic here
         JFrame ventana = new VentanaPrincipal();
-        ventana.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
         ventana.setVisible(true); 
         
     }

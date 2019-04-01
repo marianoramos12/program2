@@ -5,17 +5,44 @@
  */
 package javaapplication27;
 
+import Mantenimiento.Usuarios;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import static java.awt.Frame.MAXIMIZED_BOTH;
+import java.awt.Toolkit;
+import static java.lang.System.exit;
+import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author lenovo2
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-
+    //Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    //DesktopPanel panelBackGround=new DesktopPanel(this.screenSize.width/2,this.screenSize.height/2);
     /**
      * Creates new form VentanaPrincipal
      */
     public VentanaPrincipal() {
         initComponents();
+        //panelBackGround.
+        this.setExtendedState(MAXIMIZED_BOTH);
+        this.setResizable(true);
+        setLocationRelativeTo(null);
+        //this.add(panelBackGround,BorderLayout.CENTER);
+       
+        this.pack();
+        
+
+        
+    }
+    public void cerrar()
+    {   int opcion =  JOptionPane.showConfirmDialog(this,"Desea Salir?",this.getTitle(),JOptionPane.YES_NO_OPTION);
+        if(opcion==0)
+            exit(0);
+    
     }
 
     /**
@@ -27,6 +54,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelBackGround = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuMant = new javax.swing.JMenu();
         menuMantUsuarios = new javax.swing.JMenuItem();
@@ -58,14 +86,35 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuConsClientes = new javax.swing.JMenuItem();
         menuConsClientesBalancePendiente = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("PROGRAMACION III - TAREA FINAL(SISTEMA DE GIMNASIO)");
         setAlwaysOnTop(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelBackGroundLayout = new javax.swing.GroupLayout(panelBackGround);
+        panelBackGround.setLayout(panelBackGroundLayout);
+        panelBackGroundLayout.setHorizontalGroup(
+            panelBackGroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 601, Short.MAX_VALUE)
+        );
+        panelBackGroundLayout.setVerticalGroup(
+            panelBackGroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 379, Short.MAX_VALUE)
+        );
 
         menuMant.setText("Mantenimientos");
         menuMant.setToolTipText("");
 
         menuMantUsuarios.setText("Usuarios");
+        menuMantUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuMantUsuariosActionPerformed(evt);
+            }
+        });
         menuMant.add(menuMantUsuarios);
 
         menuMantEntrenador.setText("Entrenador");
@@ -175,11 +224,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(panelBackGround)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addComponent(panelBackGround)
         );
 
         pack();
@@ -196,6 +245,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void menuConsCobroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsCobroClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuConsCobroClienteActionPerformed
+
+    private void menuMantUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantUsuariosActionPerformed
+        Usuarios mantUsuarios= new Usuarios();
+       
+        panelBackGround.add(mantUsuarios);
+        mantUsuarios.centrar();
+        mantUsuarios.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuMantUsuariosActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        cerrar();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
@@ -231,7 +294,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu menuCons;
@@ -263,5 +326,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu menuProc;
     private javax.swing.JMenuItem menuProcGenerarCobro;
     private javax.swing.JMenuItem menuProcReversarCobro;
+    private javax.swing.JDesktopPane panelBackGround;
     // End of variables declaration//GEN-END:variables
 }
