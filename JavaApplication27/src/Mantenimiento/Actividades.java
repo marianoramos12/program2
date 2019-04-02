@@ -5,17 +5,25 @@
  */
 package Mantenimiento;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import javaapplication27.PanelFondo;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ing mariano ramos
  */
 public class Actividades extends javax.swing.JInternalFrame {
-
+Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     /**
      * Creates new form Usuarios
      */
     public Actividades() {
         initComponents();
+        PanelFondo panel=new PanelFondo(this.screenSize.width,this.screenSize.height);
+        this.add(panel,BorderLayout.CENTER);
     }
 
     /**
@@ -45,10 +53,25 @@ public class Actividades extends javax.swing.JInternalFrame {
         setClosable(true);
         setForeground(java.awt.Color.white);
         setIconifiable(true);
-        setResizable(true);
         setTitle("ENTRENADOR");
-        setFrameIcon(null);
         setVisible(true);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosing(evt);
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         labelNombre.setText("Nombre ");
 
@@ -192,6 +215,20 @@ public class Actividades extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textIDdescripcionActionPerformed
 
+    private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
+        cerrar();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formInternalFrameClosing
+    public void cerrar()
+    {   int opcion =  JOptionPane.showConfirmDialog(this,"Desea Salir?",this.getTitle(),JOptionPane.YES_NO_OPTION);
+        if(opcion==0)
+            dispose();
+    
+    }
+    public void centrar()
+    {
+        this.setLocation(this.getParent().getWidth()/2 - this.getWidth()/2 ,this.getParent().getHeight()/2 - this.getHeight()/2 - 20);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonGuardar;
