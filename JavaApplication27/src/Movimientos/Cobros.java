@@ -49,7 +49,6 @@ public class Cobros extends javax.swing.JInternalFrame {
         setBackground(new java.awt.Color(255, 204, 0));
         setClosable(true);
         setIconifiable(true);
-        setMaximizable(true);
         setTitle("COBROS");
 
         jLabel1.setText("ID de cobro");

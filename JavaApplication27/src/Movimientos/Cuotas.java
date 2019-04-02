@@ -47,7 +47,6 @@ public class Cuotas extends javax.swing.JInternalFrame {
         setBackground(new java.awt.Color(255, 204, 0));
         setClosable(true);
         setIconifiable(true);
-        setMaximizable(true);
         setResizable(true);
         setTitle("COBROS");
 
