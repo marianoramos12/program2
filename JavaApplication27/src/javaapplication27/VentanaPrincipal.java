@@ -5,15 +5,18 @@
  */
 package javaapplication27;
 
-import Mantenimiento.Usuarios;
+import Mantenimiento.*;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
+import java.awt.Graphics;
 import java.awt.Toolkit;
 import static java.lang.System.exit;
+import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 /**
  *
@@ -26,6 +29,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      * Creates new form VentanaPrincipal
      */
     public VentanaPrincipal() {
+        try{
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+          }catch(Exception e){
+            e.printStackTrace();
+          } 
         initComponents();
         //panelBackGround.
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -54,7 +62,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelBackGround = new javax.swing.JDesktopPane();
+        panelBackGround = new javax.swing.JDesktopPane(){
+            @Override
+            public void paintComponent(Graphics g){
+                Dimension tam= getSize();
+                ImageIcon ImagenFondo=new ImageIcon(new ImageIcon(getClass().getResource("/Graficas/Fondo.png")).getImage());
+                g.drawImage(ImagenFondo.getImage(), 0,0, tam.width, tam.height,null);
+                setOpaque(false);
+                super.paintComponent(g);
+
+            }
+        }
+        ;
         jMenuBar1 = new javax.swing.JMenuBar();
         menuMant = new javax.swing.JMenu();
         menuMantUsuarios = new javax.swing.JMenuItem();
@@ -95,8 +114,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        panelBackGround.setBackground(new java.awt.Color(204, 204, 255));
-
         javax.swing.GroupLayout panelBackGroundLayout = new javax.swing.GroupLayout(panelBackGround);
         panelBackGround.setLayout(panelBackGroundLayout);
         panelBackGroundLayout.setHorizontalGroup(
@@ -120,9 +137,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuMant.add(menuMantUsuarios);
 
         menuMantEntrenador.setText("Entrenador");
+        menuMantEntrenador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuMantEntrenadorActionPerformed(evt);
+            }
+        });
         menuMant.add(menuMantEntrenador);
 
         menuMantLocalizacion.setText("Localizacion");
+        menuMantLocalizacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuMantLocalizacionActionPerformed(evt);
+            }
+        });
         menuMant.add(menuMantLocalizacion);
 
         menuMantSalas.setText("Salas");
@@ -134,21 +161,51 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuMant.add(menuMantSalas);
 
         menuMantActividades.setText("Actividades");
+        menuMantActividades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuMantActividadesActionPerformed(evt);
+            }
+        });
         menuMant.add(menuMantActividades);
 
         menuMantHorarioActividades.setText("Horario de Actividades");
+        menuMantHorarioActividades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuMantHorarioActividadesActionPerformed(evt);
+            }
+        });
         menuMant.add(menuMantHorarioActividades);
 
         menuMantClientes.setText("Clientes");
+        menuMantClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuMantClientesActionPerformed(evt);
+            }
+        });
         menuMant.add(menuMantClientes);
 
         menuMantEstadoReservas.setText("Estado Reservas");
+        menuMantEstadoReservas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuMantEstadoReservasActionPerformed(evt);
+            }
+        });
         menuMant.add(menuMantEstadoReservas);
 
         menuMantReservas.setText("Reservas");
+        menuMantReservas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuMantReservasActionPerformed(evt);
+            }
+        });
         menuMant.add(menuMantReservas);
 
         menuMantReservaActividades.setText("Reserva Actividades");
+        menuMantReservaActividades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuMantReservaActividadesActionPerformed(evt);
+            }
+        });
         menuMant.add(menuMantReservaActividades);
 
         jMenuBar1.add(menuMant);
@@ -237,6 +294,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuMantSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantSalasActionPerformed
+        Salas ventana= new Salas();
+       
+        panelBackGround.add(ventana);
+        ventana.centrar();
+        ventana.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_menuMantSalasActionPerformed
 
@@ -249,11 +311,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuConsCobroClienteActionPerformed
 
     private void menuMantUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantUsuariosActionPerformed
-        Usuarios mantUsuarios= new Usuarios();
+        Usuarios ventana= new Usuarios();
        
-        panelBackGround.add(mantUsuarios);
-        mantUsuarios.centrar();
-        mantUsuarios.setVisible(true);
+        panelBackGround.add(ventana);
+        ventana.centrar();
+        ventana.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_menuMantUsuariosActionPerformed
 
@@ -261,6 +323,78 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         cerrar();
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
+
+    private void menuMantEntrenadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantEntrenadorActionPerformed
+        Entrenador ventana= new Entrenador();
+       
+        panelBackGround.add(ventana);
+        ventana.centrar();
+        ventana.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuMantEntrenadorActionPerformed
+
+    private void menuMantLocalizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantLocalizacionActionPerformed
+        Usuarios ventana= new Usuarios();
+       
+        panelBackGround.add(ventana);
+        ventana.centrar();
+        ventana.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuMantLocalizacionActionPerformed
+
+    private void menuMantActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantActividadesActionPerformed
+        Actividades ventana= new Actividades();
+       
+        panelBackGround.add(ventana);
+        ventana.centrar();
+        ventana.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuMantActividadesActionPerformed
+
+    private void menuMantHorarioActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantHorarioActividadesActionPerformed
+        Horarios_Actividades ventana= new Horarios_Actividades();
+       
+        panelBackGround.add(ventana);
+        ventana.centrar();
+        ventana.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuMantHorarioActividadesActionPerformed
+
+    private void menuMantClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantClientesActionPerformed
+        Cliente ventana= new Cliente();
+       
+        panelBackGround.add(ventana);
+        ventana.centrar();
+        ventana.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuMantClientesActionPerformed
+
+    private void menuMantEstadoReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantEstadoReservasActionPerformed
+        Estado_Reserva ventana= new Estado_Reserva();
+       
+        panelBackGround.add(ventana);
+        ventana.centrar();
+        ventana.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuMantEstadoReservasActionPerformed
+
+    private void menuMantReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantReservasActionPerformed
+        Reserva ventana= new Reserva();
+       
+        panelBackGround.add(ventana);
+        ventana.centrar();
+        ventana.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuMantReservasActionPerformed
+
+    private void menuMantReservaActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantReservaActividadesActionPerformed
+        Reserva_Actividades ventana= new Reserva_Actividades();
+       
+        panelBackGround.add(ventana);
+        ventana.centrar();
+        ventana.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuMantReservaActividadesActionPerformed
 
     /**
      * @param args the command line arguments

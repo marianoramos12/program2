@@ -5,6 +5,10 @@
  */
 package Mantenimiento;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import javaapplication27.PanelFondo;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,12 +16,14 @@ import javax.swing.JOptionPane;
  * @author ing mariano ramos
  */
 public class Usuarios extends javax.swing.JInternalFrame {
-
+Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     /**
      * Creates new form Usuarios
      */
     public Usuarios() {
         initComponents();
+        PanelFondo panel=new PanelFondo(this.screenSize.width,this.screenSize.height);
+        this.add(panel,BorderLayout.CENTER);
         
     }
 
@@ -49,7 +55,6 @@ public class Usuarios extends javax.swing.JInternalFrame {
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setIconifiable(true);
-        setResizable(true);
         setTitle("MANTENIMIENTO DE USUARIOS");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {

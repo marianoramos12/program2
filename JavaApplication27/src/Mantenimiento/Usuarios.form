@@ -8,7 +8,6 @@
     <Property name="closable" type="boolean" value="true"/>
     <Property name="defaultCloseOperation" type="int" value="0"/>
     <Property name="iconifiable" type="boolean" value="true"/>
-    <Property name="resizable" type="boolean" value="true"/>
     <Property name="title" type="java.lang.String" value="MANTENIMIENTO DE USUARIOS"/>
   </Properties>
   <SyntheticProperties>

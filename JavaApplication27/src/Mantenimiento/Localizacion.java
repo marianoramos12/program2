@@ -5,17 +5,25 @@
  */
 package Mantenimiento;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import javaapplication27.PanelFondo;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ing mariano ramos
  */
 public class Localizacion extends javax.swing.JInternalFrame {
-
+Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     /**
      * Creates new form Usuarios
      */
     public Localizacion() {
         initComponents();
+        PanelFondo panel=new PanelFondo(this.screenSize.width,this.screenSize.height);
+        this.add(panel,BorderLayout.CENTER);
     }
 
     /**
@@ -122,7 +130,16 @@ public class Localizacion extends javax.swing.JInternalFrame {
     private void textTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textTipoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textTipoActionPerformed
-
+    public void cerrar()
+    {   int opcion =  JOptionPane.showConfirmDialog(this,"Desea Salir?",this.getTitle(),JOptionPane.YES_NO_OPTION);
+        if(opcion==0)
+            dispose();
+    
+    }
+    public void centrar()
+    {
+        this.setLocation(this.getParent().getWidth()/2 - this.getWidth()/2 ,this.getParent().getHeight()/2 - this.getHeight()/2 - 20);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonGuardar;

@@ -22,11 +22,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Entrenador"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuMantEntrenadorActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuMantLocalizacion">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Localizacion"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuMantLocalizacionActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuMantSalas">
               <Properties>
@@ -40,31 +46,49 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Actividades"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuMantActividadesActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuMantHorarioActividades">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Horario de Actividades"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuMantHorarioActividadesActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuMantClientes">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Clientes"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuMantClientesActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuMantEstadoReservas">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Estado Reservas"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuMantEstadoReservasActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuMantReservas">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Reservas"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuMantReservasActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuMantReservaActividades">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Reserva Actividades"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuMantReservaActividadesActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -212,11 +236,9 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JDesktopPane" name="panelBackGround">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="cc" red="cc" type="rgb"/>
-        </Property>
-      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JDesktopPane(){&#xa;@Override&#xa;    public void paintComponent(Graphics g){&#xa;        Dimension tam= getSize();&#xa;        ImageIcon ImagenFondo=new ImageIcon(new ImageIcon(getClass().getResource(&quot;/Graficas/Fondo.png&quot;)).getImage());&#xa;        g.drawImage(ImagenFondo.getImage(), 0,0, tam.width, tam.height,null);&#xa;        setOpaque(false);&#xa;        super.paintComponent(g);&#xa;        &#xa;    }&#xa;}&#xa;"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">
