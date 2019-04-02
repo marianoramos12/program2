@@ -54,6 +54,23 @@ Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         setClosable(true);
         setIconifiable(true);
         setTitle("RESERVA ");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosing(evt);
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         labelIDsaladereserva.setText("ID sala de reserva");
 
@@ -208,6 +225,11 @@ Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private void textIDhorariodereservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIDhorariodereservaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textIDhorariodereservaActionPerformed
+
+    private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
+        cerrar();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formInternalFrameClosing
     public void cerrar()
     {   int opcion =  JOptionPane.showConfirmDialog(this,"Desea Salir?",this.getTitle(),JOptionPane.YES_NO_OPTION);
         if(opcion==0)

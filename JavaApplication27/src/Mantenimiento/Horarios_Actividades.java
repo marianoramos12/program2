@@ -53,6 +53,23 @@ Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         setIconifiable(true);
         setTitle("LOCALIZACION ");
         setToolTipText("");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosing(evt);
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         textIDhorariodeactividad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,6 +191,11 @@ Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private void textHoradeactividadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textHoradeactividadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textHoradeactividadActionPerformed
+
+    private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
+        cerrar();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formInternalFrameClosing
     public void cerrar()
     {   int opcion =  JOptionPane.showConfirmDialog(this,"Desea Salir?",this.getTitle(),JOptionPane.YES_NO_OPTION);
         if(opcion==0)

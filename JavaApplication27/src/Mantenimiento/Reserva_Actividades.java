@@ -56,6 +56,23 @@ Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         setClosable(true);
         setIconifiable(true);
         setTitle("RESERVA DE ACTIVIDADES ");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosed(evt);
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         labelFechareserva.setText("Fecha de reserva");
 
@@ -228,6 +245,11 @@ Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private void textIDreservadehorariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIDreservadehorariosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textIDreservadehorariosActionPerformed
+
+    private void formInternalFrameClosed(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosed
+        cerrar();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formInternalFrameClosed
     public void cerrar()
     {   int opcion =  JOptionPane.showConfirmDialog(this,"Desea Salir?",this.getTitle(),JOptionPane.YES_NO_OPTION);
         if(opcion==0)
