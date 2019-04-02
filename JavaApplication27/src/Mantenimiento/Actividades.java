@@ -45,7 +45,6 @@ public class Actividades extends javax.swing.JInternalFrame {
         setClosable(true);
         setForeground(java.awt.Color.white);
         setIconifiable(true);
-        setMaximizable(true);
         setResizable(true);
         setTitle("ENTRENADOR");
         setFrameIcon(null);

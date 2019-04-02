@@ -49,7 +49,6 @@ public class Usuarios extends javax.swing.JInternalFrame {
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setIconifiable(true);
-        setMaximizable(true);
         setResizable(true);
         setTitle("MANTENIMIENTO DE USUARIOS");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {

@@ -47,7 +47,6 @@ public class Reserva_Actividades extends javax.swing.JInternalFrame {
         setBackground(new java.awt.Color(153, 153, 153));
         setClosable(true);
         setIconifiable(true);
-        setMaximizable(true);
         setResizable(true);
         setTitle("RESERVA DE ACTIVIDADES ");
 

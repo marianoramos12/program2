@@ -37,7 +37,6 @@ public class Localizacion extends javax.swing.JInternalFrame {
         setBackground(new java.awt.Color(153, 153, 153));
         setClosable(true);
         setIconifiable(true);
-        setMaximizable(true);
         setTitle("LOCALIZACION ");
         setToolTipText("");
 

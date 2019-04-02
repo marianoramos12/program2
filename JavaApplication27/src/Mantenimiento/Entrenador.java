@@ -44,7 +44,6 @@ public class Entrenador extends javax.swing.JInternalFrame {
         setClosable(true);
         setForeground(java.awt.Color.orange);
         setIconifiable(true);
-        setMaximizable(true);
         setResizable(true);
         setTitle("ENTRENADOR");
 
