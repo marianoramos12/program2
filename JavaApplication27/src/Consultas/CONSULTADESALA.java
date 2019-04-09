@@ -110,7 +110,7 @@ public class CONSULTADESALA extends javax.swing.JInternalFrame {
             jTableTabladeDatos.getColumnModel().getColumn(0).setMaxWidth(100);
         }
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 104, 511, 172));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 511, 172));
 
         jButtonRetornar.setText("Retornar");
         getContentPane().add(jButtonRetornar, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 307, -1, -1));
