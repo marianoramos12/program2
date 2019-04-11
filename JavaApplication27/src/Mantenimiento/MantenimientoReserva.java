@@ -15,12 +15,12 @@ import javax.swing.JOptionPane;
  *
  * @author ing mariano ramos
  */
-public class Reserva extends javax.swing.JInternalFrame {
+public class MantenimientoReserva extends javax.swing.JInternalFrame {
 Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     /**
      * Creates new form Usuarios
      */
-    public Reserva() {
+    public MantenimientoReserva() {
         initComponents();
         PanelFondo panel=new PanelFondo(this.screenSize.width,this.screenSize.height);
         this.add(panel,BorderLayout.CENTER);

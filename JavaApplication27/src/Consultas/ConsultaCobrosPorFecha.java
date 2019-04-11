@@ -9,12 +9,12 @@ package Consultas;
  *
  * @author ing mariano ramos
  */
-public class COBROSPORFECHA extends javax.swing.JInternalFrame {
+public class ConsultaCobrosPorFecha extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Consultas
      */
-    public COBROSPORFECHA() {
+    public ConsultaCobrosPorFecha() {
         initComponents();
     }
 

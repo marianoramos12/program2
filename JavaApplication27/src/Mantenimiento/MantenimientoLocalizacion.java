@@ -15,12 +15,12 @@ import javax.swing.JOptionPane;
  *
  * @author ing mariano ramos
  */
-public class Localizacion extends javax.swing.JInternalFrame {
+public class MantenimientoLocalizacion extends javax.swing.JInternalFrame {
 Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     /**
      * Creates new form Usuarios
      */
-    public Localizacion() {
+    public MantenimientoLocalizacion() {
         initComponents();
         PanelFondo panel=new PanelFondo(this.screenSize.width,this.screenSize.height);
         this.add(panel,BorderLayout.CENTER);

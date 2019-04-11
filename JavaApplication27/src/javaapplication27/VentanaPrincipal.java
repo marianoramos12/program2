@@ -294,7 +294,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuMantSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantSalasActionPerformed
-        Salas ventana= new Salas();
+        MantenimientoSalas ventana= new MantenimientoSalas();
        
         panelBackGround.add(ventana);
         ventana.centrar();
@@ -311,7 +311,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuConsCobroClienteActionPerformed
 
     private void menuMantUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantUsuariosActionPerformed
-        Usuarios ventana= new Usuarios();
+        MantenimientoUsuarios ventana= new MantenimientoUsuarios();
        
         panelBackGround.add(ventana);
         ventana.centrar();
@@ -325,7 +325,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void menuMantEntrenadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantEntrenadorActionPerformed
-        Entrenador ventana= new Entrenador();
+        MantenimientoEntrenador ventana= new MantenimientoEntrenador();
        
         panelBackGround.add(ventana);
         ventana.centrar();
@@ -334,7 +334,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuMantEntrenadorActionPerformed
 
     private void menuMantLocalizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantLocalizacionActionPerformed
-        Usuarios ventana= new Usuarios();
+        MantenimientoUsuarios ventana= new MantenimientoUsuarios();
        
         panelBackGround.add(ventana);
         ventana.centrar();
@@ -343,7 +343,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuMantLocalizacionActionPerformed
 
     private void menuMantActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantActividadesActionPerformed
-        Actividades ventana= new Actividades();
+        MantenimientoActividades ventana= new MantenimientoActividades();
        
         panelBackGround.add(ventana);
         ventana.centrar();
@@ -352,7 +352,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuMantActividadesActionPerformed
 
     private void menuMantHorarioActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantHorarioActividadesActionPerformed
-        Horarios_Actividades ventana= new Horarios_Actividades();
+        MantenimientoHorariosActividades ventana= new MantenimientoHorariosActividades();
        
         panelBackGround.add(ventana);
         ventana.centrar();
@@ -361,7 +361,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuMantHorarioActividadesActionPerformed
 
     private void menuMantClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantClientesActionPerformed
-        Cliente ventana= new Cliente();
+        MantenimientoCliente ventana= new MantenimientoCliente();
        
         panelBackGround.add(ventana);
         ventana.centrar();
@@ -370,7 +370,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuMantClientesActionPerformed
 
     private void menuMantEstadoReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantEstadoReservasActionPerformed
-        Estado_Reserva ventana= new Estado_Reserva();
+        MantenimientoEstadoReserva ventana= new MantenimientoEstadoReserva();
        
         panelBackGround.add(ventana);
         ventana.centrar();
@@ -379,7 +379,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuMantEstadoReservasActionPerformed
 
     private void menuMantReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantReservasActionPerformed
-        Reserva ventana= new Reserva();
+        MantenimientoReserva ventana= new MantenimientoReserva();
        
         panelBackGround.add(ventana);
         ventana.centrar();
@@ -388,7 +388,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuMantReservasActionPerformed
 
     private void menuMantReservaActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantReservaActividadesActionPerformed
-        Reserva_Actividades ventana= new Reserva_Actividades();
+        MantenimientoReservaActividades ventana= new MantenimientoReservaActividades();
        
         panelBackGround.add(ventana);
         ventana.centrar();

@@ -15,12 +15,12 @@ import javax.swing.JOptionPane;
  *
  * @author ing mariano ramos
  */
-public class Horarios_Actividades extends javax.swing.JInternalFrame {
+public class MantenimientoHorariosActividades extends javax.swing.JInternalFrame {
 Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     /**
      * Creates new form Usuarios
      */
-    public Horarios_Actividades() {
+    public MantenimientoHorariosActividades() {
         initComponents();
         PanelFondo panel=new PanelFondo(this.screenSize.width,this.screenSize.height);
         this.add(panel,BorderLayout.CENTER);

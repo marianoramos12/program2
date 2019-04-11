@@ -9,12 +9,12 @@ package Consultas;
  *
  * @author ing mariano ramos
  */
-public class COBROSPORCUOTA extends javax.swing.JInternalFrame {
+public class ConsultaCobrosPorCliente extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Consultas
      */
-    public COBROSPORCUOTA() {
+    public ConsultaCobrosPorCliente() {
         initComponents();
     }
 
@@ -34,13 +34,13 @@ public class COBROSPORCUOTA extends javax.swing.JInternalFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabelIDcuota = new javax.swing.JLabel();
+        jLabelIDdehorario = new javax.swing.JLabel();
         jTextFieldID = new javax.swing.JTextField();
         jButtonBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableTabladeDatos = new javax.swing.JTable();
         jButtonRetornar = new javax.swing.JButton();
-        jLabelIDcuota1 = new javax.swing.JLabel();
+        jLabelIDdehorario1 = new javax.swing.JLabel();
         jTextFieldID1 = new javax.swing.JTextField();
 
         jMenu2.setText("File");
@@ -58,12 +58,12 @@ public class COBROSPORCUOTA extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setResizable(true);
-        setTitle("CUOTA POR FECHA");
+        setTitle("COBROS POR CLIENTES");
         setToolTipText("");
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Graficas/fondo.png"))); // NOI18N
 
-        jLabelIDcuota.setBackground(new java.awt.Color(204, 204, 255));
-        jLabelIDcuota.setText("ID DE CLIENTE");
+        jLabelIDdehorario.setBackground(new java.awt.Color(204, 204, 255));
+        jLabelIDdehorario.setText("ID DE COBRO");
 
         jTextFieldID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,18 +75,18 @@ public class COBROSPORCUOTA extends javax.swing.JInternalFrame {
 
         jTableTabladeDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID  CUOTA ", "FECHA DE CUOTA", "ID DE CLIENTE", "MONTO", "ESTADO DE CUOTA"
+                "ID ", "FECHA DE COBRO", "ID DE CLIENTE", "MONTO", "POR CONCEPTO DE", "ESTADO DE COBRO"
             }
         ));
         jScrollPane1.setViewportView(jTableTabladeDatos);
@@ -98,8 +98,8 @@ public class COBROSPORCUOTA extends javax.swing.JInternalFrame {
 
         jButtonRetornar.setText("Retornar");
 
-        jLabelIDcuota1.setBackground(new java.awt.Color(204, 204, 255));
-        jLabelIDcuota1.setText("ID DE CUOTA");
+        jLabelIDdehorario1.setBackground(new java.awt.Color(204, 204, 255));
+        jLabelIDdehorario1.setText("ID CLIENTE");
 
         jTextFieldID1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,38 +112,46 @@ public class COBROSPORCUOTA extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabelIDcuota1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextFieldID1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
-                .addComponent(jLabelIDcuota, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabelIDdehorario)
+                .addGap(28, 28, 28)
                 .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonRetornar)
-                    .addComponent(jButtonBuscar))
-                .addContainerGap(262, Short.MAX_VALUE))
+                .addGap(65, 65, 65)
+                .addComponent(jLabelIDdehorario1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jTextFieldID1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(136, 136, 136)
+                .addComponent(jButtonBuscar)
+                .addGap(271, 271, 271))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1018, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(455, 455, 455)
+                        .addComponent(jButtonRetornar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelIDcuota, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelIDcuota1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldID1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonBuscar))
-                .addGap(18, 18, 18)
-                .addComponent(jButtonRetornar)
-                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelIDdehorario1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldID1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelIDdehorario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(71, 71, 71)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addComponent(jButtonRetornar)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         pack();
@@ -161,8 +169,8 @@ public class COBROSPORCUOTA extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonRetornar;
-    private javax.swing.JLabel jLabelIDcuota;
-    private javax.swing.JLabel jLabelIDcuota1;
+    private javax.swing.JLabel jLabelIDdehorario;
+    private javax.swing.JLabel jLabelIDdehorario1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar2;
