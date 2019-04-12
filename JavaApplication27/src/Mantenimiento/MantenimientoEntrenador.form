@@ -44,9 +44,9 @@
                       </Group>
                       <EmptySpace type="separate" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="textIDentrenador" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                          <Component id="textNombr" pref="200" max="32767" attributes="0"/>
-                          <Component id="textApellido1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="textIdEntrenador" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="textNombre" pref="200" max="32767" attributes="0"/>
+                          <Component id="textApellido" alignment="0" max="32767" attributes="0"/>
                           <Component id="textTelefono" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                           <Component id="textEmail" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -72,15 +72,15 @@
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                       <Component id="labelID" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="textIDentrenador" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="textIdEntrenador" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="textNombr" min="-2" max="-2" attributes="0"/>
+                      <Component id="textNombre" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="textApellido1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="textApellido" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="labelApellido" alignment="3" pref="29" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -126,10 +126,10 @@
         <Property name="text" type="java.lang.String" value="Email "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="textIDentrenador">
+    <Component class="javax.swing.JTextField" name="textIdEntrenador">
       <Events>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="textIDentrenadorFocusLost"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textIDentrenadorActionPerformed"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="textIdEntrenadorFocusLost"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textIdEntrenadorActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="textEmail">
@@ -154,15 +154,18 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Guardar "/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGuardarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="labelID">
       <Properties>
         <Property name="text" type="java.lang.String" value="ID de entrenador"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="textNombr">
+    <Component class="javax.swing.JTextField" name="textNombre">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textNombrActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textNombreActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="labelApellido">
@@ -170,9 +173,9 @@
         <Property name="text" type="java.lang.String" value="Apellidos"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="textApellido1">
+    <Component class="javax.swing.JTextField" name="textApellido">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textApellido1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textApellidoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonLimpiar">

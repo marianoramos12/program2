@@ -66,6 +66,11 @@ public class Entrenador extends Archivo{
     public void setCorreo_Entrenador(String correo_Entrenador) {
         this.correo_Entrenador = correo_Entrenador;
     }
+
+    @Override
+    public String toString() {
+        return id_Entrenador + getSeparador() + nombre_Entrenador + getSeparador() + apellido_Entrenador + getSeparador() + telf_Entrenador+ getSeparador() + correo_Entrenador;
+    }
     
     
 }

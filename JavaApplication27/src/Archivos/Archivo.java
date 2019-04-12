@@ -10,7 +10,21 @@ package Archivos;
  * @author lenovo2
  */
 public class Archivo {
-    private static String carpeta="Archivos/";
+    private final String carpeta;
+    private final String separador;
+    
+    public Archivo(){
+        carpeta="Archivos/";
+        separador="|";
+    }
+
+    public String getCarpeta() {
+        return carpeta;
+    }
+
+    public String getSeparador() {
+        return separador;
+    }
     
     
     

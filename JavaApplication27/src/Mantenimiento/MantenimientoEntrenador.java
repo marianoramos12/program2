@@ -5,10 +5,14 @@
  */
 package Mantenimiento;
 
+import Archivos.Entrenador;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import javaapplication27.LimpiarCampos;
+import javaapplication27.Manejador;
 import javaapplication27.PanelFondo;
 import javax.swing.JOptionPane;
 
@@ -18,15 +22,55 @@ import javax.swing.JOptionPane;
  */
 public class MantenimientoEntrenador extends javax.swing.JInternalFrame {
 Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-
+Entrenador objetoArchivo;
+Manejador instanciaManejador;
 
     /**
      * Creates new form Usuarios
      */
     public MantenimientoEntrenador() {
         initComponents();
+        this.getRootPane().setDefaultButton(buttonGuardar);
         PanelFondo panel=new PanelFondo(this.screenSize.width,this.screenSize.height);
         this.add(panel,BorderLayout.CENTER);
+        instanciaManejador=new Manejador();
+        //objetoArchivo=new Entrenador();
+        
+    }
+    
+    private void guardarTxt(){
+        FileWriter fileWriter;
+        PrintWriter printWriter;
+        
+        try{
+            fileWriter = new FileWriter(objetoArchivo.getCarpeta()+objetoArchivo.getClass().getSimpleName()+".txt");
+            printWriter = new PrintWriter(fileWriter);
+            
+            //JOptionPane.showMessageDialog(this,objetoArchivo.getNombre_Entrenador());
+            
+            for(int i = 0; i < instanciaManejador.cantidadRegistro(); i++){
+                objetoArchivo = (Entrenador) instanciaManejador.obtenerRegistro(i);
+                printWriter.println(objetoArchivo.toString());
+            }
+            
+            System.out.println(fileWriter.toString());
+             printWriter.close();
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(this,"Error al grabar archivo: "+ex.getMessage());
+            System.out.println(ex.getMessage());
+        }
+    }
+    
+    private void botonGuardar(){
+        objetoArchivo=new Entrenador(Integer.parseInt(textIdEntrenador.getText().trim()),
+                textNombre.getText().trim(),textApellido.getText().trim(),textTelefono.getText().trim(),
+                textEmail.getText().trim());      
+                
+                instanciaManejador.agregarRegistro(objetoArchivo);
+                
+                guardarTxt();
+                LimpiarCampos.limpiarCampos(this.getContentPane());
     }
 
     /**
@@ -41,15 +85,15 @@ Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         labelNombre = new javax.swing.JLabel();
         labelTelefono = new javax.swing.JLabel();
         labelEmail = new javax.swing.JLabel();
-        textIDentrenador = new javax.swing.JTextField();
+        textIdEntrenador = new javax.swing.JTextField();
         textEmail = new javax.swing.JTextField();
         textTelefono = new javax.swing.JTextField();
         buttoncancelar = new javax.swing.JButton();
         buttonGuardar = new javax.swing.JButton();
         labelID = new javax.swing.JLabel();
-        textNombr = new javax.swing.JTextField();
+        textNombre = new javax.swing.JTextField();
         labelApellido = new javax.swing.JLabel();
-        textApellido1 = new javax.swing.JTextField();
+        textApellido = new javax.swing.JTextField();
         buttonLimpiar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(153, 153, 153));
@@ -81,14 +125,14 @@ Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
         labelEmail.setText("Email ");
 
-        textIDentrenador.addFocusListener(new java.awt.event.FocusAdapter() {
+        textIdEntrenador.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                textIDentrenadorFocusLost(evt);
+                textIdEntrenadorFocusLost(evt);
             }
         });
-        textIDentrenador.addActionListener(new java.awt.event.ActionListener() {
+        textIdEntrenador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textIDentrenadorActionPerformed(evt);
+                textIdEntrenadorActionPerformed(evt);
             }
         });
 
@@ -112,20 +156,25 @@ Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         });
 
         buttonGuardar.setText("Guardar ");
+        buttonGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonGuardarActionPerformed(evt);
+            }
+        });
 
         labelID.setText("ID de entrenador");
 
-        textNombr.addActionListener(new java.awt.event.ActionListener() {
+        textNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textNombrActionPerformed(evt);
+                textNombreActionPerformed(evt);
             }
         });
 
         labelApellido.setText("Apellidos");
 
-        textApellido1.addActionListener(new java.awt.event.ActionListener() {
+        textApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textApellido1ActionPerformed(evt);
+                textApellidoActionPerformed(evt);
             }
         });
 
@@ -152,9 +201,9 @@ Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
                             .addComponent(labelEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(textIDentrenador, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textNombr, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                            .addComponent(textApellido1)
+                            .addComponent(textIdEntrenador, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(textApellido)
                             .addComponent(textTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(textEmail)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -173,14 +222,14 @@ Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
                     .addGroup(layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addComponent(labelID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(textIDentrenador, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textIdEntrenador, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(textNombr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(11, 11, 11)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(textApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(labelNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
@@ -204,9 +253,9 @@ Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textIDentrenadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIDentrenadorActionPerformed
+    private void textIdEntrenadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIdEntrenadorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textIDentrenadorActionPerformed
+    }//GEN-LAST:event_textIdEntrenadorActionPerformed
 
     private void textEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textEmailActionPerformed
         // TODO add your handling code here:
@@ -220,13 +269,13 @@ Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         // TODO add your handling code here:
     }//GEN-LAST:event_buttoncancelarActionPerformed
 
-    private void textNombrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNombrActionPerformed
+    private void textNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textNombrActionPerformed
+    }//GEN-LAST:event_textNombreActionPerformed
 
-    private void textApellido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textApellido1ActionPerformed
+    private void textApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textApellidoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textApellido1ActionPerformed
+    }//GEN-LAST:event_textApellidoActionPerformed
 
     private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
         cerrar();
@@ -243,10 +292,15 @@ Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonLimpiarActionPerformed
 
-    private void textIDentrenadorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textIDentrenadorFocusLost
+    private void textIdEntrenadorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textIdEntrenadorFocusLost
         
         // TODO add your handling code here:
-    }//GEN-LAST:event_textIDentrenadorFocusLost
+    }//GEN-LAST:event_textIdEntrenadorFocusLost
+
+    private void buttonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGuardarActionPerformed
+        botonGuardar();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonGuardarActionPerformed
     public void cerrar()
     {   int opcion =  JOptionPane.showConfirmDialog(this,"Desea Salir?",this.getTitle(),JOptionPane.YES_NO_OPTION);
         if(opcion==0)
@@ -267,10 +321,10 @@ Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private javax.swing.JLabel labelID;
     private javax.swing.JLabel labelNombre;
     private javax.swing.JLabel labelTelefono;
-    private javax.swing.JTextField textApellido1;
+    private javax.swing.JTextField textApellido;
     private javax.swing.JTextField textEmail;
-    private javax.swing.JTextField textIDentrenador;
-    private javax.swing.JTextField textNombr;
+    private javax.swing.JTextField textIdEntrenador;
+    private javax.swing.JTextField textNombre;
     private javax.swing.JTextField textTelefono;
     // End of variables declaration//GEN-END:variables
 }
