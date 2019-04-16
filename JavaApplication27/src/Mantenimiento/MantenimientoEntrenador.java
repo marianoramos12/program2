@@ -10,6 +10,7 @@ import java.awt.AWTKeyStroke;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.HeadlessException;
 import java.awt.KeyboardFocusManager;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -19,6 +20,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -45,17 +47,18 @@ Manejador instanciaManejador;
         
         // Conjunto de teclas que queremos que sirvan para pasar el foco 
         // al siguiente campo de texto: ENTER y TAB
-//        Set<AWTKeyStroke> teclas = new HashSet<AWTKeyStroke>();
-//        teclas.add(AWTKeyStroke.getAWTKeyStroke(
-//                KeyEvent.VK_ENTER, 0));
-//        teclas.add(AWTKeyStroke.getAWTKeyStroke(
-//                KeyEvent.VK_TAB, 0));
-//        
-//        // Se pasa el conjunto de teclas al panel principal 
-//        this.getContentPane().setFocusTraversalKeys(
-//                KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, 
-//                teclas);
+        Set<AWTKeyStroke> teclas = new HashSet<AWTKeyStroke>();
+        teclas.add(AWTKeyStroke.getAWTKeyStroke(
+                KeyEvent.VK_ENTER, 0));
+        teclas.add(AWTKeyStroke.getAWTKeyStroke(
+                KeyEvent.VK_TAB, 0));
         
+        // Se pasa el conjunto de teclas al panel principal 
+        panelCampos.setFocusTraversalKeys(
+                KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, 
+                teclas);
+        
+
         //this.getRootPane().setDefaultButton(buttonGuardar);
         PanelFondo panel=new PanelFondo(this.screenSize.width,this.screenSize.height);
         this.add(panel,BorderLayout.CENTER);
@@ -69,39 +72,37 @@ Manejador instanciaManejador;
     public void abrirTxt(){
         FileReader fileReader;
         BufferedReader bufferedReader;
+        
+        //verificar si existe el archivo para cargarlo
+        File archivo = new File(objetoArchivo.carpeta+objetoArchivo.getClass().getSimpleName()+".txt");
+        if(archivo.exists()){
+                
+            try{
 
-                
-        try{
-            File directorio=new File(objetoArchivo.getCarpeta()); 
-            directorio.mkdir(); 
-            fileReader = new FileReader(objetoArchivo.getCarpeta()+objetoArchivo.getClass().getSimpleName()+".txt");
-            bufferedReader = new BufferedReader(fileReader);
-            
-           
-            String registro = null;
-  
-            while((registro = bufferedReader.readLine())!=null){
-            
-            
-            String[] datosRegistro=registro.split(objetoArchivo.getSeparador());           
-                
-            
-                //StringTokenizer registroSeparado = new StringTokenizer(registro, "|");
-                
-                objetoArchivo = new Entrenador();
-                objetoArchivo.setId_Entrenador(Integer.parseInt(datosRegistro[0]));
-                objetoArchivo.setNombre_Entrenador(datosRegistro[1]);
-                objetoArchivo.setApellido_Entrenador(datosRegistro[2]);
-                objetoArchivo.setTelf_Entrenador(datosRegistro[3]);
-                objetoArchivo.setCorreo_Entrenador(datosRegistro[4]);
-                instanciaManejador.agregarRegistro(objetoArchivo);
-                
-                JOptionPane.showMessageDialog(null,Arrays.toString(datosRegistro));
+                fileReader = new FileReader(objetoArchivo.carpeta+objetoArchivo.getClass().getSimpleName()+".txt");
+                bufferedReader = new BufferedReader(fileReader);
+
+                String registro = null;
+
+                while((registro = bufferedReader.readLine())!=null){
+
+                String[] datosRegistro=registro.split(objetoArchivo.separador,-1);           
+
+                    objetoArchivo = new Entrenador();
+                    objetoArchivo.setId_Entrenador(Integer.parseInt(datosRegistro[0]));
+                    objetoArchivo.setNombre_Entrenador(datosRegistro[1]);
+                    objetoArchivo.setApellido_Entrenador(datosRegistro[2]);
+                    objetoArchivo.setTelf_Entrenador(datosRegistro[3]);
+                    objetoArchivo.setCorreo_Entrenador(datosRegistro[4]);
+                    instanciaManejador.agregarRegistro(objetoArchivo);
+
+                    //JOptionPane.showMessageDialog(null,Arrays.toString(datosRegistro));
+                }
+                bufferedReader.close();
+            }catch(HeadlessException | IOException | NumberFormatException ex){
+                JOptionPane.showMessageDialog(null,"Error al cargar archivo: "+ex.getMessage());
+                //System.out.println(ex.getMessage());
             }
-            bufferedReader.close();
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(null,"Error al cargar archivo: "+ex.getMessage());
-            //System.out.println(ex.getMessage());
         }
     }
     //buscar si existe ese ID
@@ -129,9 +130,9 @@ Manejador instanciaManejador;
         PrintWriter printWriter;
         
         try{
-            File directorio=new File(objetoArchivo.getCarpeta()); 
+            File directorio=new File(objetoArchivo.carpeta); 
             directorio.mkdir(); 
-            fileWriter = new FileWriter(objetoArchivo.getCarpeta()+objetoArchivo.getClass().getSimpleName()+".txt");
+            fileWriter = new FileWriter(objetoArchivo.carpeta+objetoArchivo.getClass().getSimpleName()+".txt");
             printWriter = new PrintWriter(fileWriter);
             
             //JOptionPane.showMessageDialog(this,objetoArchivo.getNombre_Entrenador());
@@ -151,6 +152,7 @@ Manejador instanciaManejador;
     }
     
     private void botonGuardar(){
+        //VALIDACION DE CAMPOS OBLIGATORIOS
         if(textIdEntrenador.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Falta el ID de Entrenador");
             textIdEntrenador.requestFocus();
@@ -164,15 +166,23 @@ Manejador instanciaManejador;
             textApellido.requestFocus();
         }        
         else {
+            //CREAR EL OBJETO
             objetoArchivo=new Entrenador(Integer.parseInt(textIdEntrenador.getText().trim()),
                 textNombre.getText().trim(),textApellido.getText().trim(),textTelefono.getText().trim(),
                 textEmail.getText().trim());      
 
-
-            instanciaManejador.agregarRegistro(objetoArchivo);
+            //VERIFICAR SI EXISTE PARA MODIFICARLO SINO AGREGARLO
+            int id=buscarId(objetoArchivo.getId_Entrenador());
+            if(id!=-1)
+                instanciaManejador.modificarRegistro(id, objetoArchivo);
+            else
+                instanciaManejador.agregarRegistro(objetoArchivo);
+            //GUARDAR LA INSTANCIA EN EL TXT
             guardarTxt();
-            LimpiarCampos.limpiarCampos(this.getContentPane()); 
-        }
+            LimpiarCampos.limpiarCampos(panelCampos); 
+            labelMensaje.setText("CREANDO");
+            textIdEntrenador.requestFocus();
+            }
 
     }
 
@@ -185,20 +195,22 @@ Manejador instanciaManejador;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelNombre = new javax.swing.JLabel();
+        labelMensaje = new javax.swing.JLabel();
+        panelCampos = new javax.swing.JPanel();
         labelTelefono = new javax.swing.JLabel();
         labelEmail = new javax.swing.JLabel();
         textIdEntrenador = new javax.swing.JTextField();
         textEmail = new javax.swing.JTextField();
         textTelefono = new javax.swing.JTextField();
-        buttoncancelar = new javax.swing.JButton();
-        buttonGuardar = new javax.swing.JButton();
         labelID = new javax.swing.JLabel();
         textNombre = new javax.swing.JTextField();
         labelApellido = new javax.swing.JLabel();
+        labelNombre = new javax.swing.JLabel();
         textApellido = new javax.swing.JTextField();
+        panelBotones = new javax.swing.JPanel();
+        buttonGuardar = new javax.swing.JButton();
+        buttoncancelar = new javax.swing.JButton();
         buttonLimpiar = new javax.swing.JButton();
-        labelMensaje = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 153, 153));
         setClosable(true);
@@ -223,7 +235,10 @@ Manejador instanciaManejador;
             }
         });
 
-        labelNombre.setText("Nombre ");
+        labelMensaje.setFont(new java.awt.Font("sansserif", 1, 20)); // NOI18N
+        labelMensaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        panelCampos.setOpaque(false);
 
         labelTelefono.setText("Telefono");
 
@@ -247,29 +262,11 @@ Manejador instanciaManejador;
             }
         });
 
-        buttoncancelar.setText("Cancelar");
-        buttoncancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttoncancelarActionPerformed(evt);
-            }
-        });
-
-        buttonGuardar.setText("Guardar ");
-        buttonGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonGuardarActionPerformed(evt);
-            }
-        });
-
         labelID.setText("ID de entrenador");
 
-        textNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textNombreActionPerformed(evt);
-            }
-        });
-
         labelApellido.setText("Apellidos");
+
+        labelNombre.setText("Nombre ");
 
         textApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -277,83 +274,141 @@ Manejador instanciaManejador;
             }
         });
 
-        buttonLimpiar.setText("Limpiar");
+        javax.swing.GroupLayout panelCamposLayout = new javax.swing.GroupLayout(panelCampos);
+        panelCampos.setLayout(panelCamposLayout);
+        panelCamposLayout.setHorizontalGroup(
+            panelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCamposLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelApellido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCamposLayout.createSequentialGroup()
+                        .addGroup(panelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textIdEntrenador, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(103, 103, 103))
+                    .addGroup(panelCamposLayout.createSequentialGroup()
+                        .addGroup(panelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textApellido)
+                            .addComponent(textNombre)
+                            .addComponent(textEmail))
+                        .addContainerGap())))
+        );
+        panelCamposLayout.setVerticalGroup(
+            panelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCamposLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textIdEntrenador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelID, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        panelBotones.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        panelBotones.setOpaque(false);
+
+        buttonGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Graficas/guardar.png"))); // NOI18N
+        buttonGuardar.setText("Guardar ");
+        buttonGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        buttonGuardar.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        buttonGuardar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        buttonGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonGuardarActionPerformed(evt);
+            }
+        });
+
+        buttoncancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Graficas/salir.png"))); // NOI18N
+        buttoncancelar.setText("Cancelar");
+        buttoncancelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        buttoncancelar.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        buttoncancelar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        buttoncancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttoncancelarActionPerformed(evt);
+            }
+        });
+
+        buttonLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Graficas/nuevo.png"))); // NOI18N
+        buttonLimpiar.setText("Nuevo");
+        buttonLimpiar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        buttonLimpiar.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        buttonLimpiar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         buttonLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonLimpiarActionPerformed(evt);
             }
         });
 
-        labelMensaje.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        labelMensaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        javax.swing.GroupLayout panelBotonesLayout = new javax.swing.GroupLayout(panelBotones);
+        panelBotones.setLayout(panelBotonesLayout);
+        panelBotonesLayout.setHorizontalGroup(
+            panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBotonesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(buttonGuardar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(buttoncancelar)
+                .addContainerGap())
+        );
+        panelBotonesLayout.setVerticalGroup(
+            panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBotonesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(buttoncancelar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonLimpiar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonGuardar, javax.swing.GroupLayout.Alignment.LEADING))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(buttonLimpiar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addComponent(buttoncancelar)
-                .addGap(40, 40, 40)
-                .addComponent(buttonGuardar)
-                .addGap(6, 6, 6))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelCampos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labelMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(labelID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textIdEntrenador, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(96, 96, 96))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labelApellido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labelTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labelEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textApellido)
-                            .addComponent(textNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
-                            .addComponent(textEmail, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(textTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addGap(6, 6, 6)
+                        .addComponent(panelBotones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(13, 13, 13)
+                .addContainerGap()
                 .addComponent(labelMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelCampos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textIdEntrenador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelID, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(textApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttoncancelar)
-                    .addComponent(buttonGuardar)
-                    .addComponent(buttonLimpiar))
-                .addContainerGap())
+                .addComponent(panelBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
 
         pack();
@@ -368,12 +423,9 @@ Manejador instanciaManejador;
     }//GEN-LAST:event_textTelefonoActionPerformed
 
     private void buttoncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttoncancelarActionPerformed
+        cerrar();
         // TODO add your handling code here:
     }//GEN-LAST:event_buttoncancelarActionPerformed
-
-    private void textNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textNombreActionPerformed
 
     private void textApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textApellidoActionPerformed
         // TODO add your handling code here:
@@ -385,14 +437,14 @@ Manejador instanciaManejador;
     }//GEN-LAST:event_formInternalFrameClosing
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-        LimpiarCampos.limpiarCampos(this.getContentPane());
+        LimpiarCampos.limpiarCampos(panelCampos);
         labelMensaje.setText("CREANDO");
         abrirTxt();
         // TODO add your handling code here:
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void buttonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLimpiarActionPerformed
-        LimpiarCampos.limpiarCampos(this.getContentPane());
+        LimpiarCampos.limpiarCampos(panelCampos);
         labelMensaje.setText("CREANDO");
         textIdEntrenador.requestFocus();
         // TODO add your handling code here:
@@ -442,6 +494,8 @@ Manejador instanciaManejador;
     private javax.swing.JLabel labelMensaje;
     private javax.swing.JLabel labelNombre;
     private javax.swing.JLabel labelTelefono;
+    private javax.swing.JPanel panelBotones;
+    private javax.swing.JPanel panelCampos;
     private javax.swing.JTextField textApellido;
     private javax.swing.JTextField textEmail;
     private javax.swing.JTextField textIdEntrenador;

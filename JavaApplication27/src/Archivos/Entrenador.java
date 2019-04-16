@@ -15,8 +15,10 @@ public class Entrenador extends Archivo{
     private String apellido_Entrenador;
     private String telf_Entrenador;
     private String correo_Entrenador;
+    private final int cantidadCampos=5;
 
     public Entrenador() {
+    
     }
 
     public Entrenador(int id_Entrenador, String nombre_Entrenador, String apellido_Entrenador, String telf_Entrenador, String correo_Entrenador) {
@@ -69,7 +71,7 @@ public class Entrenador extends Archivo{
     
     @Override
     public String toString() {
-        return id_Entrenador + getSeparador() + nombre_Entrenador + getSeparador() + apellido_Entrenador + getSeparador() + telf_Entrenador+ getSeparador() + correo_Entrenador;
+        return id_Entrenador + separador+ nombre_Entrenador + separador+ apellido_Entrenador + separador+ telf_Entrenador+ separador+ correo_Entrenador;
     }
     
     
