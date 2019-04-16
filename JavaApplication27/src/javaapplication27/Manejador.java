@@ -41,12 +41,5 @@ public class Manejador {
     public int cantidadRegistro(){
         return this.arreglo.size();
     }
-    
-//    public int buscaCodigo(int codigo){
-//        for(int i = 0; i < cantidadRegistro(); i++){
-//            if(codigo == obtenerRegistro(i).getCodigo())return i;
-//        }
-//        return -1;
-//    }
-    
+        
 }

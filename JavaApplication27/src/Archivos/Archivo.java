@@ -15,7 +15,7 @@ public class Archivo {
     
     public Archivo(){
         carpeta="Archivos/";
-        separador="|";
+        separador=";";
     }
 
     public String getCarpeta() {

@@ -1,1 +1,4 @@
-2|odali|ceballo|809-365-5584|
+2;ODALI;CEBALLO;809;odali@gmail.com
+2;ODALI;pimentel;809;odali@gmail.com
+3;juan;carlos;;jc
+1;israel;cepeda;809-6;
