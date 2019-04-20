@@ -1,3 +1,1 @@
-1;juan;perez;809-325-3641;juan@gmail.com
-2;jose;ramon;809-222-3333;
-3;juan;carlos;;
+1;juan;carlos;809-325-3641;juan@gmail.com

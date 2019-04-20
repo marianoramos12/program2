@@ -185,6 +185,20 @@ Manejador instanciaManejador;
             }
 
     }
+    private void botonEliminar() {
+        int id=buscarId(Integer.parseInt(textIdEntrenador.getText().trim()));
+        if(id!=-1) {
+            instanciaManejador.eliminarRegistro(id);
+            guardarTxt();
+            LimpiarCampos.limpiarCampos(panelCampos); 
+            labelMensaje.setText("CREANDO");
+            JOptionPane.showMessageDialog(this, "Registro eliminado");
+            textIdEntrenador.requestFocus();
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "ID no existe para eliminar");
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -211,6 +225,7 @@ Manejador instanciaManejador;
         buttonGuardar = new javax.swing.JButton();
         buttoncancelar = new javax.swing.JButton();
         buttonLimpiar = new javax.swing.JButton();
+        buttonEliminar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(153, 153, 153));
         setClosable(true);
@@ -285,19 +300,24 @@ Manejador instanciaManejador;
                     .addComponent(labelApellido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labelTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labelEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(labelID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelCamposLayout.createSequentialGroup()
+                        .addComponent(labelID)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCamposLayout.createSequentialGroup()
                         .addGroup(panelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textIdEntrenador, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(103, 103, 103))
+                            .addComponent(textIdEntrenador, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(panelCamposLayout.createSequentialGroup()
                         .addGroup(panelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textApellido)
-                            .addComponent(textNombre)
-                            .addComponent(textEmail))
+                            .addComponent(textEmail)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCamposLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(panelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(textNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(textApellido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap())))
         );
         panelCamposLayout.setVerticalGroup(
@@ -362,6 +382,17 @@ Manejador instanciaManejador;
             }
         });
 
+        buttonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Graficas/eliminar.png"))); // NOI18N
+        buttonEliminar.setText("Eliminar");
+        buttonEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        buttonEliminar.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        buttonEliminar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        buttonEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEliminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelBotonesLayout = new javax.swing.GroupLayout(panelBotones);
         panelBotones.setLayout(panelBotonesLayout);
         panelBotonesLayout.setHorizontalGroup(
@@ -369,9 +400,11 @@ Manejador instanciaManejador;
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBotonesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(buttonGuardar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(buttoncancelar)
                 .addContainerGap())
         );
@@ -382,8 +415,9 @@ Manejador instanciaManejador;
                 .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(buttoncancelar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonLimpiar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonGuardar, javax.swing.GroupLayout.Alignment.LEADING))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonGuardar, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonEliminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -461,6 +495,11 @@ Manejador instanciaManejador;
         botonGuardar();
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonGuardarActionPerformed
+
+    private void buttonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEliminarActionPerformed
+        botonEliminar();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonEliminarActionPerformed
     public void cerrar()
     {   int opcion =  JOptionPane.showConfirmDialog(this,"Desea Salir?",this.getTitle(),JOptionPane.YES_NO_OPTION);
         if(opcion==0)
@@ -485,6 +524,7 @@ Manejador instanciaManejador;
 //    };
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonEliminar;
     private javax.swing.JButton buttonGuardar;
     private javax.swing.JButton buttonLimpiar;
     private javax.swing.JButton buttoncancelar;

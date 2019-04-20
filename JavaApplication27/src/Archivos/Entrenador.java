@@ -15,7 +15,6 @@ public class Entrenador extends Archivo{
     private String apellido_Entrenador;
     private String telf_Entrenador;
     private String correo_Entrenador;
-    private final int cantidadCampos=5;
 
     public Entrenador() {
     
