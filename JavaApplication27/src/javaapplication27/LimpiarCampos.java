@@ -6,7 +6,7 @@
 package javaapplication27;
 
 import java.awt.Container;
-import javax.swing.JPanel;
+import javax.swing.JComboBox;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -22,6 +22,9 @@ public class LimpiarCampos {
             }
             else if(panel.getComponents()[i] instanceof JPasswordField){
                 ((JPasswordField)panel.getComponents()[i]).setText("");
+            }
+            else if(panel.getComponents()[i] instanceof JComboBox){
+                ((JComboBox)panel.getComponents()[i]).setSelectedIndex(-1);
             }
         }
     }

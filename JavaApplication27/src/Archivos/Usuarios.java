@@ -75,6 +75,11 @@ public class Usuarios extends Archivo{
     public void setCorreo_Usuario(String correo_Usuario) {
         this.correo_Usuario = correo_Usuario;
     }
+
+    @Override
+    public String toString() {
+        return login_Usuario + separador + pass_Usuario + separador + nivel_Acceso + separador + nombre_Usuario + separador + apellidos_Usuario + separador + correo_Usuario;
+    }
     
     
 }
