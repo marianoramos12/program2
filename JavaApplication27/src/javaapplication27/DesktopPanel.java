@@ -13,10 +13,6 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author Oceballo
- */
 public class DesktopPanel extends javax.swing.JDesktopPane{
     int ancho,largo;
 public DesktopPanel(int ancho,int largo)

@@ -1,2 +1,1 @@
-oceballo;123456;0;odali;ceballo;odali@gmail.com
-arturo;abc;1;Arturo;Ramos;
+arturo;abc;0;Arturo;Ramos;
