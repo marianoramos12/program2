@@ -42,7 +42,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         //this.add(panelBackGround,BorderLayout.CENTER);
        
         this.pack();
-        
+
 
         
     }
@@ -74,7 +74,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         }
         ;
-        jMenuBar1 = new javax.swing.JMenuBar();
+        menuBarra = new javax.swing.JMenuBar();
         menuMant = new javax.swing.JMenu();
         menuMantUsuarios = new javax.swing.JMenuItem();
         menuMantEntrenador = new javax.swing.JMenuItem();
@@ -110,6 +110,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
 
@@ -207,14 +210,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         menuMant.add(menuMantReservaActividades);
 
-        jMenuBar1.add(menuMant);
+        menuBarra.add(menuMant);
 
         menuMov.setText("Movimientos");
 
         menuMovCuotas.setText("Cuotas");
         menuMov.add(menuMovCuotas);
 
-        jMenuBar1.add(menuMov);
+        menuBarra.add(menuMov);
 
         menuProc.setText("Procesos");
 
@@ -224,7 +227,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuProcReversarCobro.setText("Reversar Cobro");
         menuProc.add(menuProcReversarCobro);
 
-        jMenuBar1.add(menuProc);
+        menuBarra.add(menuProc);
 
         menuCons.setText("Consultas");
 
@@ -274,9 +277,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuConsClientesBalancePendiente.setText("Clientes con Balance Pendiente");
         menuCons.add(menuConsClientesBalancePendiente);
 
-        jMenuBar1.add(menuCons);
+        menuBarra.add(menuCons);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(menuBarra);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -395,6 +398,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_menuMantReservaActividadesActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        menuBarra.setVisible(false);
+        Login ventanaLogin=new Login(this,true);
+        ventanaLogin.centrar();
+        ventanaLogin.setVisible(true);
+        if(ventanaLogin.aceptar){
+            menuBarra.setVisible(true);
+            //desactivar el mantenimiento de usuario del menu si es usuario normal
+            if(ventanaLogin.objetoArchivo.getNivel_Acceso()==1)
+                menuMantUsuarios.setEnabled(false);
+            setTitle(getTitle()+" "+ventanaLogin.objetoArchivo.getNombre_Usuario()+" "+ventanaLogin.objetoArchivo.getApellidos_Usuario());
+        }
+// TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
+
     /**
      * @param args the command line arguments
      */
@@ -431,7 +449,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar menuBarra;
     private javax.swing.JMenu menuCons;
     private javax.swing.JMenuItem menuConsActividades;
     private javax.swing.JMenuItem menuConsClientes;
