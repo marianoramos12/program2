@@ -745,6 +745,11 @@ Manejador instanciaManejador;
     private void textIdClienteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textIdClienteFocusLost
         if(!textIdCliente.getText().isEmpty())
             llenarCampos();
+        else {
+            String id=textIdCliente.getText();
+            LimpiarCampos.limpiarCampos(panelCampos);
+            textIdCliente.setText(id);
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_textIdClienteFocusLost
     public void cerrar()

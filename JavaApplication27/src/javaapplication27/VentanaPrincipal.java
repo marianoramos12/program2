@@ -66,7 +66,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             @Override
             public void paintComponent(Graphics g){
                 Dimension tam= getSize();
-                ImageIcon ImagenFondo=new ImageIcon(new ImageIcon(getClass().getResource("/Graficas/Fondo.png")).getImage());
+                ImageIcon ImagenFondo=new ImageIcon(new ImageIcon(getClass().getResource("/Graficas/Fondo0.jpg")).getImage());
                 g.drawImage(ImagenFondo.getImage(), 0,0, tam.width, tam.height,null);
                 setOpaque(false);
                 super.paintComponent(g);

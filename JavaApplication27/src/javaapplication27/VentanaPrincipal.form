@@ -237,7 +237,7 @@
   <SubComponents>
     <Container class="javax.swing.JDesktopPane" name="panelBackGround">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JDesktopPane(){&#xa;@Override&#xa;    public void paintComponent(Graphics g){&#xa;        Dimension tam= getSize();&#xa;        ImageIcon ImagenFondo=new ImageIcon(new ImageIcon(getClass().getResource(&quot;/Graficas/Fondo.png&quot;)).getImage());&#xa;        g.drawImage(ImagenFondo.getImage(), 0,0, tam.width, tam.height,null);&#xa;        setOpaque(false);&#xa;        super.paintComponent(g);&#xa;        &#xa;    }&#xa;}&#xa;"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JDesktopPane(){&#xa;    @Override&#xa;    public void paintComponent(Graphics g){&#xa;        Dimension tam= getSize();&#xa;        ImageIcon ImagenFondo=new ImageIcon(new ImageIcon(getClass().getResource(&quot;/Graficas/Fondo0.jpg&quot;)).getImage());&#xa;        g.drawImage(ImagenFondo.getImage(), 0,0, tam.width, tam.height,null);&#xa;        setOpaque(false);&#xa;        super.paintComponent(g);&#xa;&#xa;    }&#xa;}&#xa;"/>
       </AuxValues>
 
       <Layout>
