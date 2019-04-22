@@ -49,7 +49,7 @@ Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         setBackground(new java.awt.Color(153, 153, 153));
         setClosable(true);
         setIconifiable(true);
-        setTitle("LOCALIZACION ");
+        setTitle("SALAS");
         setToolTipText("");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {

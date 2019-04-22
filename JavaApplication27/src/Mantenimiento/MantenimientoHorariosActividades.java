@@ -51,7 +51,7 @@ Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         setClosable(true);
         setForeground(java.awt.Color.white);
         setIconifiable(true);
-        setTitle("LOCALIZACION ");
+        setTitle("HORARIO DE ACTIVIDADES");
         setToolTipText("");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
