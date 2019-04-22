@@ -7,8 +7,11 @@ package javaapplication27;
 
 import Archivos.Usuarios;
 import java.awt.AWTKeyStroke;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.HeadlessException;
 import java.awt.KeyboardFocusManager;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.File;
@@ -24,6 +27,7 @@ import javax.swing.JOptionPane;
  * @author ing mariano ramos
  */
 public class Login extends javax.swing.JDialog {
+Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 Usuarios objetoArchivo;
 Manejador instanciaManejador;
 boolean aceptar;
@@ -47,6 +51,10 @@ boolean aceptar;
         panelCampos.setFocusTraversalKeys(
                 KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, 
                 teclas);
+        
+        PanelFondo panel=new PanelFondo(this.screenSize.width,this.screenSize.height);
+        this.add(panel,BorderLayout.CENTER);
+        
         instanciaManejador=new Manejador();
         objetoArchivo=new Usuarios();
         aceptar=false;
@@ -123,6 +131,9 @@ boolean aceptar;
             }
         });
 
+        panelCampos.setOpaque(false);
+
+        textUsuario.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         textUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textUsuarioActionPerformed(evt);
@@ -132,6 +143,9 @@ boolean aceptar;
         labelUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Graficas/user.png"))); // NOI18N
 
         labelPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Graficas/password.png"))); // NOI18N
+
+        textPassword.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        textPassword.setEchoChar('\u2022');
 
         javax.swing.GroupLayout panelCamposLayout = new javax.swing.GroupLayout(panelCampos);
         panelCampos.setLayout(panelCamposLayout);
