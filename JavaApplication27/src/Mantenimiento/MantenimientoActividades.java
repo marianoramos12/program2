@@ -53,7 +53,7 @@ Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         setClosable(true);
         setForeground(java.awt.Color.white);
         setIconifiable(true);
-        setTitle("ENTRENADOR");
+        setTitle("ACTIVIDADES");
         setVisible(true);
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {

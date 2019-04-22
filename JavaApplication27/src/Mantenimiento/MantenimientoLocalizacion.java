@@ -45,6 +45,7 @@ Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         setBackground(new java.awt.Color(153, 153, 153));
         setClosable(true);
         setIconifiable(true);
+        setMaximizable(true);
         setTitle("LOCALIZACION ");
         setToolTipText("");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
